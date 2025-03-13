@@ -1,0 +1,93 @@
+import React, { useState } from 'react';
+import { View, Text, Button, Image, StyleSheet, TextInput, FlatList, TouchableOpacity, Keyboard } from 'react-native';
+
+export default function App () {
+  const [task, setTask] = useState('');
+  const [tasks, setTasks] = useState([]);
+//manipulação de estado da variável
+  const addTask = () => {
+    if (task) {
+      setTasks([...tasks, { id: Math.random().toString(), taskName: task }]);
+      setTask('');
+      Keyboard.dismiss(); // Fecha o teclado
+    }
+  };
+const removeTask = (taskId) => {
+  setTasks(tasks.filter((item) => item.id !== taskId));
+};
+
+return (
+  <View style={styles.container}>
+    <Text style={styles.header}>Lista de Tarefas</Text>
+    <TextInput
+      style={styles.input}
+      placeholder="Digite sua tarefa"
+      value={task}
+      onChangeText={setTask}
+      onSubmitEditing={addTask} //esse aqui vai servir para o enter (esperamos)
+  />
+
+  <Image 
+    source={{
+      uri: "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/06/25/850324941-20-flores-roxas-para-receber-o-inverno-gardeners-world-9.webp",
+      }}      
+      style={styles.Image}
+    />
+
+  <Button title="Adicione a sua tarefa" color='purple' onPress={addTask} />
+
+  <FlatList
+  data={tasks}
+  renderItem={({ item }) => (
+    <View style={styles.taskContainer}>
+      <Text style={styles.task}>{item.taskName}</Text>
+      <TouchableOpacity onPress={() => removeTask(item.id)}>
+        <Text style={styles.remove}>Excluir</Text>
+        </TouchableOpacity>
+    </View>
+  )}
+  keyExtractor={(item) => item.id}
+  />
+</View>
+);
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#cc99ff',
+  },
+    Image: {
+    width: 300,
+    height: 150,
+    marginBottom: 20,
+    borderRadius: 15,
+  },
+  header: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingLeft: 8,
+    marginBottom: 10,
+  },
+  taskContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    marginBottom: 5,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+  },
+  task: {
+    fontSize: 20,
+  },
+  remove: {
+    color: 'red',
+    fontSize: 14,
+  },
+});
