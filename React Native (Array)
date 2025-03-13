@@ -1,0 +1,34 @@
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native'
+
+const App = () => {
+  const [sapo, setSapo] = useState('Sapo perereco');
+
+  //aqui é a função para mudar o texto. O useState é manipulação ou mudança de estado da variável.
+  const mudarSapo = () => {
+    setSapo('Bufus Regularis!');
+
+};
+
+return (
+  <View style={teste.container}>
+    <Text style={teste.texto}>Olá {sapo}</Text>
+    <Button title="crica aqui" onPress={mudarSapo} />
+  </View>
+  );
+};
+
+const teste = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  texto: {
+    fontSize: 20,
+    marginBottom: 20,
+  },
+});
+
+export default App;
