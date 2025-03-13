@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: 'black',  //sla que que eu to fazendo//
     borderWidth: 1,
     paddingLeft: 8,
     marginBottom: 10,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
     marginBottom: 5,
-    backgroundColor: '#fff',
+    backgroundColor: '#f2e6ff',
     borderRadius: 5,
   },
   task: {
@@ -91,3 +91,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+//tentar arredondar os cantos do botão com o TouchableOpacity//
