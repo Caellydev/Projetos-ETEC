@@ -1,0 +1,43 @@
+using System;
+class Program 
+{
+    static void Main()
+    {
+        string nomedoProduto= "Celulá";
+        int codigodoProduto = 18663;
+        decimal preco = 680.00m;
+        int quantidade= 0;
+        bool disponibilidade = true;
+        
+        
+        
+        Console.WriteLine("Loja cucabeludo >:)");
+        
+        Console.WriteLine("Nome do Produto:" + nomedoProduto);
+        
+        Console.WriteLine("Código do Produto:" + codigodoProduto);
+        
+        Console.WriteLine("Quantidade:" + quantidade);
+        
+        if (quantidade == 0) {
+            
+            disponibilidade = false;
+        }
+        else {
+            
+            disponibilidade = true;
+        }
+        
+        
+        if (disponibilidade == true){
+        
+            Console.WriteLine("Disponibilidade: ainda tem");
+        }
+        else {
+            Console.WriteLine("Disponibilidade: cabo tudo");
+            
+        }
+    
+        Console.WriteLine("Valor do produto: R$ " + preco);
+    }
+}
