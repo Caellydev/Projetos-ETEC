@@ -22,6 +22,8 @@ return (
     <TextInput
       style={styles.input}
       placeholder="Digite sua tarefa"
+
+git rm "Study (React Native) List of Task"
       value={task}
       onChangeText={setTask}
       onSubmitEditing={addTask} //esse aqui vai servir para o enter (esperamos)
