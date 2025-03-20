@@ -7,7 +7,7 @@ export default function App () {
 //manipulação de estado da variável
   const addTask = () => {
     if (task) {
-      setTasks([...tasks, { id: Math.random().toString(), taskName: task }]);
+      setTasks([...tasks, { id: Math.random().toString(), taskName: task }]);h
       setTask('');
       Keyboard.dismiss(); // Fecha o teclado
     }
