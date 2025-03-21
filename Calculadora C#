@@ -1,0 +1,50 @@
+using System;
+class Program {
+    static void Main ()
+    {
+        
+        Console.WriteLine("======✰ Calculadora ✰======");
+        Console.WriteLine("Digite o primeiro número:");
+        double num1 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Digite o segundo número: ");
+        double num2 = double.Parse(Console.ReadLine());
+        
+       Console.WriteLine("Escolha uma das 4 operações:\n Adição = 1\n Subtração = 2 \n Multiplicação = 3 \n Divisão = 4");
+       int operacao = Convert.ToInt32(Console.ReadLine());
+       
+       switch (operacao) 
+       {
+           case 1:
+                double math = (num1 + num2);
+                Console.WriteLine("O resultado da Soma é: \n" +math);
+           break;
+           case 2:
+                double sub = (num1 - num2);
+                Console.WriteLine("O resultdo da Subtração é: \n" +sub);
+                break;
+            case 3:
+                double mult = (num1 * num2);
+                Console.WriteLine("O resulado da Multiplicação é:\n" +mult);
+                break;
+                
+                
+            case 4:
+            
+            if (num2 == 0)
+            { Console.WriteLine("Divisão por zero é inválida.");}
+            
+            else
+                {double div = (num1 / num2);
+                 Console.WriteLine("o resultado da Divisão é:\n" + div );}
+                 break;
+                
+            default:
+                Console.WriteLine("Não tem");
+                break;
+           
+       }
+    
+        
+        
+    }
+}
