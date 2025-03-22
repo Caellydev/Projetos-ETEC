@@ -1,0 +1,26 @@
+<?php 
+    
+    echo "Vamos calcular seu IMC: \n";
+    echo "Coloque a sua altura:";
+    $altura = (float) readline();
+    
+    echo "Coloque o seu peso:";
+    $peso =  (float) readline();
+    
+    $imc = $peso / ($altura ** 2);
+    
+    
+    
+    if ($imc < 18.5){
+        
+        echo "Seu peso é: ".number_format ($imc,2)." e está abaixo do ideal";
+        
+    }
+    elseif ($imc >= 18 && $imc<= 25) {
+        echo "Seu peso é: " .number_format ($imc,2). " é o ideal";
+    }
+    else{
+        
+        echo" Seu peso é: " .number_format($imc,2). " e está acima do ideal";
+        
+    }
