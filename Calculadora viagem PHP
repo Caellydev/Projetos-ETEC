@@ -2,29 +2,93 @@
     
     echo "=====Calculadora de Viagem=====\n";
     
+    echo "Seja bem-vindo(a) a sua calculadora pessoal. Para começarmos, digite o seu nome: \n";
+        $nomedousuario = (float) readline();
+    echo "\n";
+    echo "╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴╴\n";
+    // que troço feio meu pai
+    echo "Agora, selecione a velocidade do veículo:";
+    echo "\n";
+    echo "Digite 1 para Min\nDigite 2 para Méd\nDigite 3 para Máx\n";
+    echo "\n";
     
-    echo "Digite a distância percorrida: ";
+    echo "===Velocidade===\n";
+    echo "Min igual a: 5 - 30 Km/h\nMéd igual a: 40 - 130 Km/h\nMáx igual a: 140 - 170 Km/h";
+    echo "\n";
+    
+    
+        $mmm = (float) readline();
+    
+        switch ($mmm) {
+            
+            case 1:
+                $min = 1;
+                break;
+                
+            case  2:
+                $med = 2;
+                break;
+                
+            case 3:
+                $max = 3;
+                break;
+                
+            default:
+                echo "Número inválido! Volte do começo.\n";
+                exit ();
+                
+                // caso a pessoa errar, ai eu barro programa niclas, era tão simples >:9
+        }
+        
+    echo "Agora vamos calcular com os parametros!\n";
+    
+    echo "Digite a distância percorrida em Km: ";
         $distancia = (float) readline();
     
-    echo "Digite a quantidade de gasolina consumida: ";
+    echo "Digite a quantidade de gasolina consumida em L: ";
         $consumo =  (float) readline();
     
     echo "Digite o preço do combustível: ";
         $preco =  (float) readline();
         
-    echo "Para calcular o total ";
+    echo "\n";
         
-    echo"Para calcular litros necessários digite: 1 \n Para calcular o custo total digite: 2\n";
+    echo "==Escolha um número== \n";
+        
+    echo"Para calcular litros necessários digite: 1 \nPara calcular o custo total digite: 2\nPara calcular ambos digite 3:\n";
     $escolha = (int)readline();
         
     switch ($escolha) {
         case 1:
             $litrosNecessarios = $distancia/$consumo;
-            echo "A quantidade de litros necessária é de:" .$litrosNecessarios;
+            echo "A quantidade de litros necessária é de: " . number_format($litrosNecessarios,2);
             break;
         
         case 2:
-            $litrosNecessarios2 = $distancia/$consumo;
+            $litrosNecessarios = $distancia/$consumo;            
+            $custoTotal = $litrosNecessarios*$preco;
+        echo "O custo total ficou de: R$" . number_format($custoTotal,2);
+            break;
+            
+        case 3:
+            $litrosNecessarios = $distancia/$consumo;
+            $custoTotal = $litrosNecessarios*$preco;
+        echo "A quantidade de litros necessários são: " . number_format($litrosNecessarios,2);
+        echo "\n";
+        echo "E o custo total de: R$" . number_format($custoTotal,2);
+            break;
+            
+        default:
+            echo "Número inválido";
+            break;
+            
+        //Vamos lá cah, um carro popular consumiria por Km 0,083 de combustível. Vou tentar então velocidades médias.
+        // deveria deixar uma nota? Deixa quieto. Não vou fazer o código mas se quiser deixo minha ideia -> Adicionar as constantes
+        // min -> 17.5 med -> 85 e max -> 155 nas fómulas quando o usuário escolher as opções das velocidades. Por exemplo, velocidade min calculada
+        // com a constante 17.5.
+    } 
+    
+    ?>
             $custoTotal = $litrosNecessarios2*$preco;
             break;
     } 
