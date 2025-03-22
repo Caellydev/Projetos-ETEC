@@ -1,0 +1,14 @@
+<?php 
+    
+    echo "Digite um número:";
+    $num1 = (float) readline();
+
+    echo "Digite outro número:";
+    $num2 = (float) readline();
+
+    $soma = $num1 + $num2;
+    
+    $texto =  "A soma de ".$num1. " mais " .$num2. " é " .$soma.".";
+    echo $texto
+
+?>
