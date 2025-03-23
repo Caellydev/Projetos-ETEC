@@ -53,7 +53,7 @@ const App = () => {
 export default App;
 
 
-// CSS //
+// Styles.js //
 
 import { StyleSheet } from 'react-native';
 
