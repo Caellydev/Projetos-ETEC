@@ -25,7 +25,7 @@ const App = () => {
         placeholder="Digite um número"
         placeholderTextColor ='gray'
         keyboardType="numeric"
-        valued={numero1}
+        value={numero1}
         onChangeText={setNumero1}
       />
       <TextInput
@@ -33,7 +33,7 @@ const App = () => {
         placeholder="Digite um número"
         placeholderTextColor ='gray'
         keyboardType="numeric"
-        valued={numero2}
+        value={numero2}
         onChangeText={setNumero2}
        />
       <TextInput 
