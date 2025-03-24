@@ -1,0 +1,72 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { styles } from './css/styles';
+
+//construtor vazio// testar o set, e entender se nesse caso...
+const App = () => { 
+  const [idade, setIdade] = useState('');
+  const [resultado, setResultado] = useState('');
+
+  const maioroumenor = () => {
+
+    const id = parseInt(idade);
+
+    //funcionaaa, pleaseee. Desisto
+
+      if (!isNaN(id)) {
+        if (id >= 18 && id <= 120) {
+        setResultado("Maior de idade");
+      } else if (id <= 17 && id >= 1) {
+        setResultado("Menor de idade");
+      } else {
+        setResultado("Apenas números de 1 a 120."); 
+      }
+  }
+};
+   return(
+      <View style={styles.container}>
+        <TextInput 
+          style={styles.input}
+          placeholder="Digite sua idade"
+          placeholderTextColor ='purple'
+          keyboardType="numeric"
+          value={idade}
+          onChangeText={setIdade}
+          />
+
+        <TextInput 
+          style={styles.input}
+          placeholder="Vai aparecer aq"
+          placeholderTextColor ='purple'
+          keyboardType="numeric"
+          value={resultado}
+          onChangeText={setResultado}
+          />
+
+    <Button title="Verificar" color='purple' onPress={maioroumenor} />
+    </View>
+  );
+
+};
+
+export default App;
+
+
+Styles.js
+
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+  },
+});
