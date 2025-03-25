@@ -1,0 +1,18 @@
+<?php
+
+do { 
+ 
+ echo "\n===LOGIN===\n";
+ 
+echo "Crie a sua senha: \n";
+    $senha = readline();
+echo "Digite a sua senha: \n";
+    $senhafinish = readline();
+
+if ($senha == $senhafinish){
+    echo "acesso liberado";
+}
+ else {
+     echo "senha inválida!\n ";
+ }
+} while($senha != $senhafinish);
