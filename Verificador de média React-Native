@@ -1,0 +1,97 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { styles } from './css/styles';
+
+const App = () => { 
+  const [nota1, setNota1] = useState('');
+  const [nota2, setNota2] = useState('');
+  const [nota3, setNota3] = useState('');
+  const [nota4, setNota4] = useState('');
+  const [resultado, setResultado] = useState('');
+  const [seResult,setSeResult] = useState('');
+
+
+    const media = () => {
+
+    const not1 = parseFloat(nota1);
+    const not2 = parseFloat(nota2);
+    const not3 = parseFloat(nota3);
+    const not4 = parseFloat(nota4);
+
+    //não esquecer das media
+
+    if (!isNaN(not1) && !isNaN(not2) && !isNaN(not3) && !isNaN(not4)){
+      const mediaFinal = (((not1 + not2 + not3 + not4 )/4));
+      setResultado(mediaFinal);
+    
+      ('Inválido');
+    
+
+        if ( mediaFinal >= 6) {
+        setSeResult("Aprovado");
+      } else if (mediaFinal >= 4 && mediaFinal < 6) {
+        setSeResult("Recuperação");
+      } else if (mediaFinal < 4) {
+        setSeResult("Reprovado");
+      }
+  }
+  //socorro
+  }; 
+   return(
+    <View style={styles.container}>
+      <TextInput 
+        style={styles.input}
+        placeholder="Digite sua nota"
+        placeholderTextColor ='gray'
+        keyboardType="numeric"
+        value={nota1}
+        onChangeText={setNota1}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Digite sua nota"
+        placeholderTextColor ='gray'
+        keyboardType="numeric"
+        value={nota2}
+        onChangeText={setNota2}
+      />
+
+      <TextInput 
+        style={styles.input}
+        placeholder="Digite sua nota"
+        placeholderTextColor ='gray'
+        keyboardType="numeric"
+        value={nota3}
+        onChangeText={setNota3}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Digite sua nota"
+        placeholderTextColor ='gray'
+        keyboardType="numeric"
+        value={nota4}
+        onChangeText={setNota4}
+          />
+        <TextInput 
+          style={styles.input}
+          placeholder="Resultado"
+          placeholderTextColor ='gray'
+          keyboardType="numeric"
+          value={resultado}
+          onChangeText={setResultado}
+          />
+        <TextInput 
+          style={styles.input}
+          placeholder="Situação"
+          placeholderTextColor ='gray'
+          keyboardType="numeric"
+          value={seResult}
+          />
+
+    <Button title="Verificar" color='#603f8a' onPress={media} />
+    </View>
+  );
+
+};
+
+export default App;
