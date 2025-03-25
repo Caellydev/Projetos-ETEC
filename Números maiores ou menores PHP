@@ -1,0 +1,20 @@
+<?php
+
+echo "Digite o primeiro valor \n";
+    $numero1 = (float) readline();
+    
+
+echo "Digite o segundo valor \n";
+    $numero2 = (float) readline();
+    
+
+
+    
+    if ($numero2 > $numero1){
+        echo "O $numero1 é maior\n";
+        
+    }
+    elseif ($numero2 < $numero1){
+        echo "O $numero1 é menor";
+    }
+    ?>
