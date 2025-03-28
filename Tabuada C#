@@ -1,0 +1,29 @@
+using System;
+
+class Program 
+{
+    static void Main()
+    {
+        string escolha;
+        
+        //repete duas vezes eu acho -- verificar o for de novo
+        // o dowhile foi mais fácil do que o while, anote.
+
+        do 
+        {
+            Console.WriteLine("===TABUADA=== ");
+            Console.WriteLine("Digite um número: ");
+            int digitnum = Convert.ToInt32(Console.ReadLine());
+            
+            for (int tab = 1; tab < 11; tab++)
+            {
+                int resposta = digitnum * tab;
+                Console.WriteLine(tab + " x " + digitnum + " = " + resposta);
+            }
+            
+            Console.WriteLine("\nVocê deseja prosseguir? Se sim, digite 'S' (MAIÚSCULO), se não, digite qualquer tecla: ");
+            escolha = Console.ReadLine();
+            
+        } while (escolha == "S");
+    }
+}
