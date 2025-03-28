@@ -1,0 +1,47 @@
+create database if not exists ETE_multimarcas;
+use ETE_multimarcas; 
+
+create table carros(
+ id_carro int auto_increment primary key,
+    fabricante varchar(50),
+    modelo varchar(50),
+    ano_fabricacao varchar(25),
+    cor varchar(25),
+    quantidade int,
+    categoria varchar(50));
+
+insert into carros (fabricante, modelo, ano_fabricacao, cor, quantidade, categoria) values
+('Volkswagen', 'Gol', '2023', 'Branco', 10, 'Hatch'),
+('Chevrolet', 'Onix', '2022', 'Prata', 15, 'Hatch'),
+('Fiat', 'Argo', '2021', 'Vermelho', 8, 'Hatch'),
+('Toyota', 'Corolla', '2023', 'Preto',5, 'Sedan'),
+('Honda', 'Civic','2022', 'Azul', 7, 'Sedan'),
+('Ford', 'EcoSport','2020','Cinza', 12, 'SUV' ),
+('Hyundai', 'Tucson', '2021', 'Branco', 6, 'SUV'),
+('Nissan', 'Kicks','2023', 'Amarelo', 9, 'SUV'),
+('Renault', 'Kwid', '2020', 'Vermelho', 13, 'Hatch'),
+('Jeep','Compass', '2022', 'Verde', 4, 'SUV'),
+('BMW','X3', '2023', 'Preto', 3, 'SUV'),
+('Mercedes-Benz', 'GLC', '2022', 'Prata', 2, 'SUV'),
+('Audi', 'A3', '2023', 'Azul', 5, 'Sedan'),
+('Peugeot', '208', '2021', 'Branco', 10, 'Hatch'),
+('Kia', 'Seltos', '2021', 'Cinza', 8, 'SUV'),
+('Volkswagen', 'T-Cross', '2022', 'Vermelho', 6,'SUV'),
+('Fiat', 'Toro', '2023', 'Azul',7, 'Pickup'),
+('Toyota', 'Hilux', '2022', 'Preto', 5, 'Pickup'),
+('Chevrolet', 'S10', '2023', 'Branco', 4, 'Pickup'),
+('Land Rover', 'Defender', '2023', 'Verde', 2, 'SUV');
+
+select * from carros where fabricante = 'Toyota';
+
+select fabricante, modelo, cor from carros where fabricante = 'Fiat';
+
+select * from carros 
+order by quantidade desc;
+
+select * from carros WHERE cor = 'Preto';
+
+update carros set quantidade = 5 where fabricante = "Fiat";
+update carros set cor = "Azul" where cor = "Vermelho";
+update carros set modelo ="Polo" where modelo = "Gol";
+update carros set quantidade = 8 where quantidade = 1
