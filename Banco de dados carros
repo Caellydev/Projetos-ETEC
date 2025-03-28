@@ -39,7 +39,7 @@ select fabricante, modelo, cor from carros where fabricante = 'Fiat';
 select * from carros 
 order by quantidade desc;
 
-select * from carros WHERE cor = 'Preto';
+select * from carros where cor = 'Preto';
 
 update carros set quantidade = 5 where fabricante = "Fiat";
 update carros set cor = "Azul" where cor = "Vermelho";
