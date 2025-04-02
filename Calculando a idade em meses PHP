@@ -1,0 +1,24 @@
+<?php
+
+//não consegui colocar o echo
+
+function data($dataatual, $datanasc) {
+    
+    $dataatual = DateTime::createFromFormat('d/m/Y', $dataatual);
+    $datanasc = DateTime::createFromFormat('d/m/Y', $datanasc);
+    
+    $calculo = $datanasc->diff($dataatual);
+    $anosemeses = $calculo->y * 12;
+    $meses = $calculo->m;
+    
+    return $anosemeses + $meses;
+}
+
+    $datanasc = readline("Digite sua data de nascimento ex - 03/09/2006: ");
+    $dataatual = readline("Digite a data de hoje d/m/A: ");
+    $idade = data($dataatual, $datanasc);
+    
+    
+echo "Sua idade em meses é: $idade \n";
+
+?>
