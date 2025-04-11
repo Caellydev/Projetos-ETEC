@@ -1,0 +1,58 @@
+using System;
+
+class Program {
+    
+    
+    
+
+        
+        static int SomarTresNumeros(int num1, int num2, int num3){
+            return num1 + num2 + num3;
+            
+        }
+
+
+            
+        static void Saudacao (string nome)
+        {
+            Console.WriteLine("Olá " + nome +" Bem vinde!\n");
+            
+        }
+        
+
+        static string MultiplosDeCinco (int numero)
+        {
+            if (numero % 5 == 0){
+            return "sim";
+            }
+            
+            else {
+                return "não";
+            }
+            
+        }
+        
+        static void Main()
+    {
+        
+        Console.WriteLine("Digite o primeiro número para ser somado:");
+        int n1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Digite o segundo número:");
+        int n2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Digite o terceiro número:");        
+        int n3 = Convert.ToInt32(Console.ReadLine());
+        
+        
+        int resultado = SomarTresNumeros(n1,n2,n3);
+        Console.WriteLine("O resultado é: \n" + resultado);
+        
+        Saudacao("Carolina");
+
+         Console.WriteLine("Digite um número para verificar se é multiplo de cinco: ");
+         int PedirNumero = Convert.ToInt32(Console.ReadLine());
+         string resposta = MultiplosDeCinco(PedirNumero);
+         Console.WriteLine("O seu resultado é: \n" + resposta + " é um multiplo de cinco.");
+    
+    
+    }
+}
