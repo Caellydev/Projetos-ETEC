@@ -17,7 +17,7 @@
         
     }
     elseif ($imc >= 18 && $imc<= 25) {
-        echo "Seu peso é: " .number_format ($imc,2). " é o ideal";
+        echo "Seu IMC é: " .number_format ($imc,2). " é o ideal";
     }
     else{
         
