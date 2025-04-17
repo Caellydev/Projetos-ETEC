@@ -1,0 +1,40 @@
+using System;
+
+class Carro : Onibus {
+    
+    public void Acelerar ()
+        {
+            Console.WriteLine("O carro está acelerando.");
+        }
+    
+    
+    }
+    
+class Onibus {
+    
+    public void Tombando ()
+        {
+            Console.WriteLine("O Ônibus está tombando.");
+        }
+}
+    
+class Moto : Carro {
+    
+    public void Freiar () 
+        {
+            Console.WriteLine("A moto está freiando.");
+        }
+    
+}
+
+class Program {
+    
+    static void Main () 
+    {
+        Moto m = new Moto();
+        
+        m.Acelerar();
+        m.Freiar();
+        m.Tombando();
+    }
+}
