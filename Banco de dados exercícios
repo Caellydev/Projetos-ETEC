@@ -1,0 +1,23 @@
+SELECT l.titulo, v.quantidade
+FROM livros l
+JOIN vendas v ON v.livro_id = l.id
+ORDER BY quantidade DESC;
+
+SELECT l.titulo, SUM(v.quantidade*v.preco_unitario) AS faturamento
+FROM livros l 
+JOIN vendas v ON v.livro_id = l.id
+GROUP BY l.titulo
+ORDER BY faturamento DESC;
+
+SELECT l.titulo, v.quantidade, YEAR(v.data_venda) AS ano 
+FROM vendas v
+JOIN livros l ON v.livro_id = l.id
+WHERE YEAR(v.data_venda) = 2023
+ORDER BY quantidade DESC;
+
+SELECT l.titulo, SUM(v.quantidade * v.preco_unitario) AS faturamento, YEAR(v.data_venda) AS ano
+FROM livros l
+JOIN vendas v ON v.livro_id = l.id
+WHERE YEAR(v.data_venda) = 2023
+GROUP BY l.titulo
+ORDER BY faturamento DESC; 
