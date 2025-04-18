@@ -1,0 +1,118 @@
+using System;
+
+interface IAnimal
+
+    {
+        void EmitirSom();
+    }
+    
+                                            //interface//
+    
+    abstract class Animais : IAnimal
+    {
+        abstract public void EmitirSom();
+  
+        public string nome;
+        
+        public Animais(string nome)
+            {
+                this.nome = nome;
+            }
+    }
+    
+                                            //animais//
+    
+    class Leao : Animais 
+    {
+        public Leao(string nome) : base(nome) {}
+        public override void EmitirSom()
+        {
+            Console.WriteLine("O leão ruge.\n");
+        }
+    }
+    
+    class Macaco : Animais 
+    {
+        public Macaco(string nome) : base(nome) {}
+        public override void EmitirSom()
+        {
+            Console.WriteLine("O macaco grita.\n");
+        }
+    }
+    
+    class Zebra : Animais 
+    {
+        public Zebra(string nome) : base(nome) {}
+        public override void EmitirSom()
+        {
+            Console.WriteLine("A zebra relincha.\n");
+        }
+    }
+    
+                                            //Main//
+    
+    class Program
+    {
+        static void Main() {
+        
+        string inicio;
+        
+        do
+        
+        {
+            
+            Console.WriteLine("\n====Zoológico virtual====\n");
+            Console.WriteLine("Para acessar a lista de animais digite 1.");
+            Console.WriteLine("Caso o contrário, digite o nome do animal.");
+            
+            //variável//
+            
+            string input = Console.ReadLine();
+            IAnimal animal = null;
+            
+            if (input == "1") 
+                {
+                    Console.WriteLine("\n===LISTA===\nLeão;\nMacaco;\nZebra.");
+                } 
+            else 
+                {
+            
+            
+            //variável//
+            
+            switch (input.ToLower()) 
+            {
+                
+                case "leão":
+                    animal = new Leao("Leão");
+                    break;
+                
+                case "macaco":
+                    animal = new Macaco("Macaco");
+                    break;
+                
+                case "zebra": 
+                    animal = new Zebra("Zebra");
+                    break;
+                
+                default:
+                    Console.WriteLine("Animal não registrado.");
+                    break;
+                }
+            
+            if (animal != null) 
+            {
+                animal.EmitirSom();
+                
+            }
+            
+        }
+                
+                Console.WriteLine("Caso queira voltar ao início digite: A");
+                inicio = Console.ReadLine().ToUpper();
+                
+        } while (inicio == "A");
+    }
+}
+
+                              //colocar no bloco de notas//
