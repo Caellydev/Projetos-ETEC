@@ -1,0 +1,157 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\produtos;
+use Illuminate\Http\Request;
+
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
+
+class ProdutosController extends Controller
+{
+   
+    public function index()
+    {
+        $registros = Produtos::all();
+        $contador = Produtos->count();
+
+        if ($contador . 0) {
+            return response()->json( [
+                'success' => true,
+                'message' => 'Produtos encontrados com sucesso!',
+                'data' => $registros,
+                'total' => $contador
+            ], 200);
+        } else {
+            return response()->json( [
+                'success' => false,
+                'message' => 'Nenhum produto encontrado.'
+            ], 404);
+        }
+    }
+
+ 
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required',
+            'marca' => 'required',
+            'preco' => 'required',
+        ]);
+
+        if ($registros) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Registros inválidos',
+                'errors' => $validator->errors()
+            ], 400);
+        }
+
+        $registros = Produtos::create($request->all());
+
+          if ($registros) {
+            return response()->json( [
+                'success' => true,
+                'message' => 'Produto cadastrado com sucesso!',
+                'data' => $registros,
+            ], 201);
+        } else {
+            return response()->json( [
+                'success' => false,
+                'message' => 'Erro ao cadastrar um produto.'
+            ], 500);
+        }
+    }
+
+
+    public function show($id)
+    {
+        $registros = Produtos::find($id);
+
+               if ($registros) {
+            return response()->json( [
+                'success' => true,
+                'message' => 'Produto localizado com sucesso!',
+                'data' => $registros,
+            ], 200);
+        } else {
+            return response()->json( [
+                'success' => false,
+                'message' => 'Produto não localizado.'
+            ], 404);
+    }
+
+}
+
+    public function update(Request $request, string $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required',
+            'marca' => 'required',
+            'preco' => 'required',
+        ]);
+
+           if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Registros inválidos',
+                'errors' => $validator->errors()
+            ], 400);
+        }
+
+        $registros = Produtos::find($id);
+
+           if (!$registrosBanco) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Produto não encontrado',
+            ], 400);
+        }
+
+        $registrosBanco->nome = $request->nome;
+        $registrosBanco->marca = $request->marca;
+        $registrosBanco->preco = $request->preco;
+
+            if ($registrosBanco->save()) {
+            return response()->json( [
+                'success' => true,
+                'message' => 'Produto atualizado com sucesso!',
+                'data' => $registrosBanco,
+            ], 200);
+        } else {
+            return response()->json( [
+                'success' => false,
+                'message' => 'Erro ao atualizar ao produto.'
+            ], 500);
+        }        
+    }
+
+
+     public function destroy($id)
+    {
+        $registros = Produtos::find($id);
+
+            if (!$registros) {
+            return response()->json( [
+                'success' => false,
+                'message' => 'Produto não encontrado!',
+            ], 404);
+        } 
+
+            if ($registros->delete()) {
+            return response()->json( [
+                'success' => true,
+                'message' => 'Produto deletado com sucesso!',
+            ], 404);
+
+
+        } 
+                return response()->json( [
+                    'success' => false,
+                    'message' => 'Erro ao deletar o produto!',
+                ], 500);
+
+    }
+}
